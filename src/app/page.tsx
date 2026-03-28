@@ -26,7 +26,7 @@ import {
 const WHATSAPP_LINK = "https://wa.me/5581960002151?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento%20para%20ar-condicionado.";
 const PHONE_LINK = "tel:+5581960002151";
 const EMAIL_LINK = "mailto:contato@empresa.com";
-const INSTAGRAM_LINK = "https://instagram.com/empresa";
+const INSTAGRAM_LINK = "https://instagram.com/lucassantos.atlas";
 const MAPS_EMBED_LINK =
   "https://maps.google.com/maps?q=Rua%20Terezinha%20Geni%20Martin%20Tavares%2C%20256%2C%20Rio%20das%20Pedras%20SP&t=&z=15&ie=UTF8&iwloc=&output=embed";
 
@@ -74,10 +74,10 @@ const services = [
 ];
 
 const benefits = [
-  "Atendimento ágil em Rio das Pedras e região",
+  "Atendimento ágil",
   "Equipe técnica especializada e pontual",
   "Serviço completo: venda, instalação e manutenção",
-  "Nota 5.0 com 94 avaliações de clientes reais",
+  "Nota 5.0 com 120 avaliações de clientes reais",
 ];
 
 const testimonials = [
@@ -594,7 +594,7 @@ export default function Home() {
                     <div>
                       <p className="text-base font-semibold text-[#111827]">Equipe Empresa em atendimento local</p>
                       <p className="mt-1 text-sm text-[#4B5563]">
-                        Sugestão: foto real da equipe/viatura para reforçar confiança local em Rio das Pedras.
+                        Sugestão: foto real da equipe/viatura para reforçar confiança local.
                       </p>
                     </div>
                   </div>
@@ -881,14 +881,14 @@ export default function Home() {
                 <div>
                   <p className="text-sm font-semibold text-[#0E0E75]">Área de atendimento</p>
                   <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[#111827] sm:text-4xl">
-                    Empresa em Rio das Pedras, SP
+                    Empresa em Região
                   </h2>
                   <p className="mt-4 text-sm leading-relaxed text-[#4B5563] sm:text-base">
                     Atendimento local com presença estabelecida para oferecer mais agilidade e suporte próximo em cada serviço.
                   </p>
                   <div className="mt-6 flex items-start gap-3 text-sm text-[#374151] sm:text-base">
                     <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#0E0E75]" />
-                    Rua Terezinha Geni Martin Tavares, 256, Rio das Pedras - SP, 13390-000
+                    Endereço da empresa
                   </div>
 
                   <div className="mt-6 overflow-hidden rounded-2xl border border-[#CFCFF5]">
@@ -947,7 +947,7 @@ export default function Home() {
               <Star className="h-4 w-4 fill-[#0E0E75] text-[#0E0E75]" />
               5.0 com 94 avaliações reais
             </div>
-            <p className="text-sm font-medium text-[#4B5563]">Empresa local em Rio das Pedras • Atendimento rápido</p>
+            <p className="text-sm font-medium text-[#4B5563]">Empresa local • Atendimento rápido</p>
           </div>
 
           <div className="grid gap-8 text-sm text-[#4B5563] sm:grid-cols-2 lg:grid-cols-4">
@@ -989,7 +989,7 @@ export default function Home() {
               <p className="mt-3">Segunda a Sábado</p>
               <p>07:00 - 19:00</p>
               <p className="mt-3 text-xs leading-relaxed">
-                Rua Terezinha Geni Martin Tavares, 256, Rio das Pedras - SP, 13390-000
+                Endereço da empresa
               </p>
             </div>
           </div>

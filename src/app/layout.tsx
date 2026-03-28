@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Empresa | Ar Condicionado em Rio das Pedras, SP",
+  title: "Empresa | Ar Condicionado",
   description:
-    "Empresa em Rio das Pedras, SP: instalação, assistência técnica, manutenção preventiva e corretiva, higienização, desinfecção e PMOC para ar-condicionado.",
+    "Empresa: instalação, assistência técnica, manutenção preventiva e corretiva, higienização, desinfecção e PMOC para ar-condicionado.",
   keywords: [
-    "ar condicionado Rio das Pedras",
-    "instalação de ar condicionado Rio das Pedras",
+    "ar condicionado",
+    "instalação de ar condicionado",
     "manutenção de ar condicionado SP",
     "assistência técnica ar condicionado",
     "higienização de ar condicionado",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Empresa | Climatização e Ar Condicionado em Rio das Pedras, SP",
+    title: "Empresa | Climatização e Ar Condicionado",
     description:
-      "Atendimento ágil com nota 5.0: instalação, manutenção, higienização, desinfecção e PMOC em Rio das Pedras e região.",
+      "Atendimento ágil com nota 5.0: instalação, manutenção, higienização, desinfecção e PMOC.",
     url: "/",
     siteName: "Empresa",
     locale: "pt_BR",
@@ -63,20 +63,20 @@ const localBusinessJsonLd = {
   email: "contato@empresa.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Rua Terezinha Geni Martin Tavares, 256",
-    addressLocality: "Rio das Pedras",
-    addressRegion: "SP",
-    postalCode: "13390-000",
+    streetAddress: "Rua Cruz Alta",
+    addressLocality: "Barra de jangada",
+    addressRegion: "PE",
+    postalCode: "54470-270",
     addressCountry: "BR",
   },
   areaServed: [
     {
       "@type": "City",
-      name: "Rio das Pedras",
+      name: "Barra de Jangada",
     },
     {
       "@type": "State",
-      name: "São Paulo",
+      name: "Pernambuco",
     },
   ],
   openingHoursSpecification: [
