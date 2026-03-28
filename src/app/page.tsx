@@ -28,7 +28,7 @@ const PHONE_LINK = "tel:+5581960002151";
 const EMAIL_LINK = "mailto:contato@empresa.com";
 const INSTAGRAM_LINK = "https://instagram.com/lucassantos.atlas";
 const MAPS_EMBED_LINK =
-  "https://maps.google.com/maps?q=Rua%20Terezinha%20Geni%20Martin%20Tavares%2C%20256%2C%20Rio%20das%20Pedras%20SP&t=&z=15&ie=UTF8&iwloc=&output=embed";
+  "https://maps.app.goo.gl/ehtZxKLH4mfEa9AH8";
 
 const services = [
   {
