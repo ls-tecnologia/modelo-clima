@@ -28,7 +28,7 @@ const PHONE_LINK = "tel:+5581960002151";
 const EMAIL_LINK = "mailto:contato@empresa.com";
 const INSTAGRAM_LINK = "https://instagram.com/lucassantos.atlas";
 const MAPS_EMBED_LINK =
-  "https://maps.app.goo.gl/ehtZxKLH4mfEa9AH8";
+  "https://www.google.com/maps?q=Rua+Cruz+Alta,+97,+Barra+de+Jangada,+Jaboatão+dos+Guararapes,+PE,+54470-270&output=embed";
 
 const services = [
   {
