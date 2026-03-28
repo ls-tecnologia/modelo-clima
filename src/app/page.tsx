@@ -470,7 +470,7 @@ export default function Home() {
             >
               <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#D1D5DB] px-3 py-1 text-xs font-medium text-[#7D8184]">
                 <Star className="h-3.5 w-3.5 text-[#0E0E75]" />
-                5.0 ⭐ com 94 avaliações
+                5.0 ⭐ com 120 avaliações
               </p>
               <h1 className="text-4xl font-semibold leading-tight tracking-tight text-[#111827] sm:text-5xl lg:text-6xl">
                 Design de conforto térmico com execução técnica de alto padrão.
@@ -945,7 +945,7 @@ export default function Home() {
           <div className="mb-8 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#D9D9FA] bg-white/80 px-5 py-4 backdrop-blur">
             <div className="flex items-center gap-2 text-sm font-semibold text-[#0E0E75]">
               <Star className="h-4 w-4 fill-[#0E0E75] text-[#0E0E75]" />
-              5.0 com 94 avaliações reais
+              5.0 com 120 avaliações reais
             </div>
             <p className="text-sm font-medium text-[#4B5563]">Empresa local • Atendimento rápido</p>
           </div>
