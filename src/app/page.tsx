@@ -25,7 +25,8 @@ const WHATSAPP_LINK =
 const PHONE_LINK = "tel:+5551993043810";
 const EMAIL_LINK = "mailto:contato@jjsistemasdeseguranca.com";
 const INSTAGRAM_LINK = "https://instagram.com/jj.instalacoes_";
-const MAPS_EMBED_LINK = "https://www.google.com/maps?q=Brasil&output=embed";
+const MAPS_EMBED_LINK =
+  "https://www.google.com/maps?q=Tramandaí,+Rio+Grande+do+Sul&output=embed";
 
 const services = [
   {
@@ -218,13 +219,23 @@ export default function Home() {
 
       <header className="sticky top-0 z-40 border-b border-[#2A2A2A] bg-[#111111]/80 backdrop-blur-xl">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-3 lg:px-8">
-          <a href="#inicio" className="group">
-            <p className="text-xl font-bold tracking-tight text-white">
-              JJ Sistema de Segurança
-            </p>
-            <p className="text-xs text-[#B8B8B8] transition-colors group-hover:text-[#E8532A]">
-              Instalação e manutenção técnica
-            </p>
+          <a href="#inicio" className="group flex items-center gap-3">
+            <div className="h-10 w-10 relative flex-shrink-0">
+              <Image
+                src="/images/logo.png"
+                alt="Logo JJ Sistema de Segurança"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div>
+              <p className="text-xl font-bold tracking-tight text-white">
+                JJ Sistema de Segurança
+              </p>
+              <p className="text-xs text-[#B8B8B8] transition-colors group-hover:text-[#E8532A]">
+                Instalação e manutenção técnica
+              </p>
+            </div>
           </a>
 
           <nav className="hidden items-center gap-5 lg:flex">

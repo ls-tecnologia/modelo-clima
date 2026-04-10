@@ -19,12 +19,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title:
-    "JJ Sistema de Segurança | CFTV, Alarmes, Cerca Elétrica e Portão Eletrônico",
+    "JJ Sistema de Segurança Tramandaí | CFTV, Alarmes, Cerca Elétrica e Portão Eletrônico",
   description:
-    "JJ Sistema de Segurança: instalação e manutenção técnica de CFTV, portão eletrônico, alarme residencial e cerca elétrica para residências e comércios.",
+    "JJ Sistema de Segurança em Tramandaí, RS: instalação e manutenção técnica de CFTV, portão eletrônico, alarme residencial e cerca elétrica para residências e comércios.",
   keywords: [
     "JJ Sistema de Segurança",
-    "CFTV",
+    "CFTV Tramandaí",
     "instalação de câmeras",
     "manutenção de câmeras",
     "portão eletrônico",
@@ -33,6 +33,10 @@ export const metadata: Metadata = {
     "segurança residencial",
     "segurança comercial",
     "instalação e manutenção de segurança",
+    "CFTV Rio Grande do Sul",
+    "segurança Tramandaí",
+    "alarme Tramandaí",
+    "cerca elétrica Tramandaí",
   ],
   alternates: {
     canonical: "/",
@@ -40,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "JJ Sistema de Segurança | Instalação e Manutenção Técnica",
     description:
-      "Proteção residencial e comercial com instalação e manutenção de CFTV, portão eletrônico, alarme e cerca elétrica.",
+      "Proteção residencial e comercial em Tramandaí, RS com instalação e manutenção de CFTV, portão eletrônico, alarme e cerca elétrica.",
     url: "/",
     siteName: "JJ Sistema de Segurança",
     locale: "pt_BR",
@@ -57,6 +61,14 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  icons: {
+    icon: [
+      {
+        url: "/favicon.png",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 const localBusinessJsonLd = {
@@ -69,9 +81,26 @@ const localBusinessJsonLd = {
   email: "contato@jjsistemasdeseguranca.com",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Tramandaí",
+    addressLocality: "Tramandaí",
+    addressRegion: "RS",
+    postalCode: "95590-000",
     addressCountry: "BR",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "-29.9848",
+    longitude: "-50.1341",
+  },
   areaServed: [
+    {
+      "@type": "City",
+      name: "Tramandaí",
+    },
+    {
+      "@type": "State",
+      name: "Rio Grande do Sul",
+    },
     {
       "@type": "Country",
       name: "Brasil",
