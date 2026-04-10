@@ -518,7 +518,7 @@ export default function Home() {
               {photoPlaceholders.map((photo) => (
                 <div key={photo.title} className="w-full shrink-0">
                   <article className="group grid gap-0 overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#1A1A1A] md:grid-cols-2">
-                    <div className="relative aspect-[4/3] overflow-hidden bg-[linear-gradient(135deg,rgba(232,83,42,0.85),rgba(160,52,24,0.95))]">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#111111]">
                       {photo.image ? (
                         <Image
                           src={photo.image}
