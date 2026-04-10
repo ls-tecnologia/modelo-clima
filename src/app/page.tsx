@@ -500,7 +500,6 @@ export default function Home() {
           </motion.div>
 
           <div
-            ref={containerRef}
             className="overflow-hidden rounded-3xl border border-[#2A2A2A] bg-[#111111] p-3 shadow-[0_20px_45px_rgba(0,0,0,0.35)]"
             style={{ touchAction: "pan-y" }}
             onTouchStart={(event) => {
@@ -566,43 +565,45 @@ export default function Home() {
               isHorizontalSwipe.current = null;
             }}
           >
-            <motion.div className="flex" style={{ x }}>
-              {photoPlaceholders.map((photo) => (
-                <div key={photo.title} className="w-full shrink-0">
-                  <article className="group grid gap-0 overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#1A1A1A] md:grid-cols-2">
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <div className="absolute inset-0 bg-[#111111] z-0" />
-                      {photo.image ? (
-                        <Image
-                          src={photo.image}
-                          alt={photo.title}
-                          fill
-                          className="object-cover relative z-10"
-                        />
-                      ) : (
-                        <>
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.2),transparent_35%)] z-10" />
-                          <div className="absolute right-6 bottom-6 z-20 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
-                            Placeholder
-                          </div>
-                        </>
-                      )}
-                    </div>
-                    <div className="flex min-h-[260px] flex-col justify-center p-8">
-                      <p className="text-sm font-semibold text-[#E8532A]">
-                        JJ em campo
-                      </p>
-                      <h3 className="mt-2 text-2xl font-semibold text-white">
-                        {photo.title}
-                      </h3>
-                      <p className="mt-3 text-sm leading-relaxed text-[#D1D1D1] sm:text-base">
-                        {photo.description}
-                      </p>
-                    </div>
-                  </article>
-                </div>
-              ))}
-            </motion.div>
+            <div ref={containerRef}>
+              <motion.div className="flex" style={{ x }}>
+                {photoPlaceholders.map((photo) => (
+                  <div key={photo.title} className="w-full shrink-0">
+                    <article className="group grid gap-0 overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#1A1A1A] md:grid-cols-2">
+                      <div className="relative aspect-[4/3] overflow-hidden">
+                        <div className="absolute inset-0 bg-[#111111] z-0" />
+                        {photo.image ? (
+                          <Image
+                            src={photo.image}
+                            alt={photo.title}
+                            fill
+                            className="object-cover relative z-10"
+                          />
+                        ) : (
+                          <>
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.2),transparent_35%)] z-10" />
+                            <div className="absolute right-6 bottom-6 z-20 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
+                              Placeholder
+                            </div>
+                          </>
+                        )}
+                      </div>
+                      <div className="flex min-h-[260px] flex-col justify-center p-8">
+                        <p className="text-sm font-semibold text-[#E8532A]">
+                          JJ em campo
+                        </p>
+                        <h3 className="mt-2 text-2xl font-semibold text-white">
+                          {photo.title}
+                        </h3>
+                        <p className="mt-3 text-sm leading-relaxed text-[#D1D1D1] sm:text-base">
+                          {photo.description}
+                        </p>
+                      </div>
+                    </article>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
           </div>
 
           <div className="mt-5 flex justify-center gap-2">
