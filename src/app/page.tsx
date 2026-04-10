@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -87,21 +88,73 @@ const photoPlaceholders = [
     title: "Instalação de CFTV",
     description:
       "Equipe em campo realizando instalação técnica de câmeras em ponto estratégico.",
-  },
-  {
-    title: "Projeto Comercial",
-    description:
-      "Solução de segurança para operação comercial com foco em cobertura e confiabilidade.",
-  },
-  {
-    title: "Portão Eletrônico",
-    description:
-      "Ajuste e manutenção para funcionamento seguro e prático no acesso diário.",
+    image: "/images/camera-bullet-muro-externo.jpeg",
   },
   {
     title: "Cerca Elétrica",
     description:
       "Reforço de perímetro com instalação técnica e acabamento organizado.",
+    image: "/images/camera-intelbras-cerca-eletrica.jpeg",
+  },
+  {
+    title: "Monitoramento Interno",
+    description:
+      "Sistema de câmeras com sensor de presença para proteção de ambientes internos com discrição e eficiência.",
+    image: "/images/camera-sensor-presenca-interno.jpeg",
+  },
+  {
+    title: "Projeto Comercial",
+    description:
+      "Solução de segurança para operação comercial com foco em cobertura e confiabilidade.",
+    image: "/images/camera-vigilancia-ezviz.jpeg",
+  },
+  {
+    title: "Vigilância Externa Avançada",
+    description:
+      "Câmeras WiFi com qualidade de vídeo superior e cobertura de área ampla para residências e estabelecimentos.",
+    image: "/images/camera-wifi-intelbras-externa.jpeg",
+  },
+  {
+    title: "Sistema de Alarme",
+    description:
+      "Central de alarme inteligente com controle remoto e integração com câmeras para proteção 24/7.",
+    image: "/images/central-alarme-intelbras.jpeg",
+  },
+  {
+    title: "Central de Alarme Profissional",
+    description:
+      "Instalação de central JFL com bateria de backup, garantindo funcionamento contínuo mesmo em caso de queda de energia.",
+    image: "/images/central-alarme-jfl.jpeg",
+  },
+  {
+    title: "Controle de Acesso",
+    description:
+      "Sistema de fechadura digital inteligente com teclado numérico para segurança de ambientes com maior controle de entrada.",
+    image: "/images/controle-acesso-fechadura-digital.jpeg",
+  },
+  {
+    title: "Kit Duplo de Câmeras",
+    description:
+      "Conjunto de duas câmeras bullet externas para cobertura ampla e redundância de segurança em áreas críticas.",
+    image: "/images/kit-duplo-cameras-externas.jpeg",
+  },
+  {
+    title: "Sensor de Barreira Ativa",
+    description:
+      "Sistema de sensor infravermelho para detecção de movimento em entradas e perímetros, com alerta imediato.",
+    image: "/images/sensor-barreira-ativa-entrada.jpeg",
+  },
+  {
+    title: "Teclado de Alarme Intelbras",
+    description:
+      "Painel de controle LCD inteligente com interface intuitiva para gerenciamento de zonas e armamento do sistema de alarme.",
+    image: "/images/teclado-alarme-intelbras-lcd.jpeg",
+  },
+  {
+    title: "Vigilância Perimetral Externa",
+    description:
+      "Sistema de câmeras posicionado estrategicamente para monitoramento contínuo de toda a área externa e perímetro da propriedade.",
+    image: "/images/vigilancia-perimetral-externa.jpeg",
   },
 ];
 
@@ -325,21 +378,14 @@ export default function Home() {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <div className="mb-10 rounded-3xl border border-[#2A2A2A] bg-gradient-to-br from-[#1A1A1A] via-[#1E1E1E] to-[#1A1A1A] p-5 shadow-[0_22px_55px_rgba(0,0,0,0.35)]">
-                <div className="aspect-[16/9] rounded-2xl bg-[linear-gradient(145deg,_rgba(232,83,42,0.2),_rgba(232,83,42,0.12))] p-4">
-                  <div className="flex h-full flex-col justify-between rounded-xl border border-[#3A3A3A] bg-[#151515]/80 p-5 backdrop-blur">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#B8B8B8]">
-                      Placeholder de imagem
-                    </p>
-                    <div>
-                      <p className="text-base font-semibold text-white">
-                        JJ em atendimento técnico
-                      </p>
-                      <p className="mt-1 text-sm text-[#D1D1D1]">
-                        Sugestão: foto de instalação real para reforçar
-                        credibilidade.
-                      </p>
-                    </div>
-                  </div>
+                <div className="relative aspect-[16/9] overflow-hidden rounded-2xl">
+                  <Image
+                    src="/images/secao-sobre-jhon.jpeg"
+                    alt="Equipe JJ em atendimento técnico"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
               </div>
 
@@ -472,11 +518,22 @@ export default function Home() {
               {photoPlaceholders.map((photo) => (
                 <div key={photo.title} className="w-full shrink-0">
                   <article className="group grid gap-0 overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#1A1A1A] md:grid-cols-2">
-                    <div className="relative aspect-[4/3] bg-[linear-gradient(135deg,rgba(232,83,42,0.85),rgba(160,52,24,0.95))]">
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.2),transparent_35%)]" />
-                      <div className="absolute right-6 bottom-6 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
-                        Placeholder
-                      </div>
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[linear-gradient(135deg,rgba(232,83,42,0.85),rgba(160,52,24,0.95))]">
+                      {photo.image ? (
+                        <Image
+                          src={photo.image}
+                          alt={photo.title}
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
+                        <>
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.2),transparent_35%)]" />
+                          <div className="absolute right-6 bottom-6 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
+                            Placeholder
+                          </div>
+                        </>
+                      )}
                     </div>
                     <div className="flex min-h-[260px] flex-col justify-center p-8">
                       <p className="text-sm font-semibold text-[#E8532A]">
