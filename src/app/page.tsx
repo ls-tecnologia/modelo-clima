@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -166,8 +166,8 @@ const fadeUp = {
 
 export default function Home() {
   const [photoIndex, setPhotoIndex] = useState(0);
-  const [photoTouchStartX, setPhotoTouchStartX] = useState<number | null>(null);
-  const [isPhotoAuto, setIsPhotoAuto] = useState(true);
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
 
   const nextPhoto = () => {
     setPhotoIndex((previous) => (previous + 1) % photoPlaceholders.length);
@@ -179,18 +179,6 @@ export default function Home() {
         (previous - 1 + photoPlaceholders.length) % photoPlaceholders.length,
     );
   };
-
-  useEffect(() => {
-    if (!isPhotoAuto) {
-      return;
-    }
-
-    const timer = setInterval(() => {
-      setPhotoIndex((previous) => (previous + 1) % photoPlaceholders.length);
-    }, 4200);
-
-    return () => clearInterval(timer);
-  }, [isPhotoAuto]);
 
   return (
     <div className="relative overflow-x-clip bg-[#111111] text-[#F5F5F5]">
@@ -492,28 +480,30 @@ export default function Home() {
 
           <div
             className="overflow-hidden rounded-3xl border border-[#2A2A2A] bg-[#111111] p-3 shadow-[0_20px_45px_rgba(0,0,0,0.35)]"
-            onMouseEnter={() => setIsPhotoAuto(false)}
-            onMouseLeave={() => setIsPhotoAuto(true)}
-            onTouchStart={(event) =>
-              setPhotoTouchStartX(event.touches[0].clientX)
-            }
+            style={{ touchAction: "pan-y" }}
+            onTouchStart={(event) => {
+              touchStartX.current = event.touches[0].clientX;
+              touchStartY.current = event.touches[0].clientY;
+            }}
             onTouchEnd={(event) => {
-              if (photoTouchStartX === null) {
+              if (touchStartX.current === null || touchStartY.current === null)
                 return;
+
+              const deltaX =
+                event.changedTouches[0].clientX - touchStartX.current;
+              const deltaY =
+                event.changedTouches[0].clientY - touchStartY.current;
+
+              if (
+                Math.abs(deltaX) > Math.abs(deltaY) &&
+                Math.abs(deltaX) > 40
+              ) {
+                if (deltaX < 0) nextPhoto();
+                else prevPhoto();
               }
 
-              const swipeDistance =
-                event.changedTouches[0].clientX - photoTouchStartX;
-
-              if (swipeDistance < -50) {
-                nextPhoto();
-              }
-
-              if (swipeDistance > 50) {
-                prevPhoto();
-              }
-
-              setPhotoTouchStartX(null);
+              touchStartX.current = null;
+              touchStartY.current = null;
             }}
           >
             <motion.div
