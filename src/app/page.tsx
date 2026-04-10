@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { animate, motion, useMotionValue } from "framer-motion";
 import {
   ArrowRight,
   CheckCircle2,
@@ -166,19 +166,40 @@ const fadeUp = {
 
 export default function Home() {
   const [photoIndex, setPhotoIndex] = useState(0);
+  const photoIndexRef = useRef(0);
+  const containerRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
+  const touchStartTime = useRef<number | null>(null);
+  const isHorizontalSwipe = useRef<boolean | null>(null);
+  const x = useMotionValue(0);
 
-  const nextPhoto = () => {
-    setPhotoIndex((previous) => (previous + 1) % photoPlaceholders.length);
+  const getWidth = () => containerRef.current?.offsetWidth ?? 0;
+
+  const goTo = (index: number) => {
+    const next =
+      ((index % photoPlaceholders.length) + photoPlaceholders.length) %
+      photoPlaceholders.length;
+    photoIndexRef.current = next;
+    setPhotoIndex(next);
+    animate(x, -next * getWidth(), {
+      type: "spring",
+      stiffness: 400,
+      damping: 40,
+      mass: 0.8,
+    });
   };
 
-  const prevPhoto = () => {
-    setPhotoIndex(
-      (previous) =>
-        (previous - 1 + photoPlaceholders.length) % photoPlaceholders.length,
-    );
-  };
+  const nextPhoto = () => goTo(photoIndexRef.current + 1);
+  const prevPhoto = () => goTo(photoIndexRef.current - 1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      x.jump(-photoIndexRef.current * getWidth());
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [x]);
 
   return (
     <div className="relative overflow-x-clip bg-[#111111] text-[#F5F5F5]">
@@ -479,43 +500,73 @@ export default function Home() {
           </motion.div>
 
           <div
+            ref={containerRef}
             className="overflow-hidden rounded-3xl border border-[#2A2A2A] bg-[#111111] p-3 shadow-[0_20px_45px_rgba(0,0,0,0.35)]"
             style={{ touchAction: "pan-y" }}
             onTouchStart={(event) => {
               touchStartX.current = event.touches[0].clientX;
               touchStartY.current = event.touches[0].clientY;
+              touchStartTime.current = Date.now();
+              isHorizontalSwipe.current = null;
             }}
-            onTouchEnd={(event) => {
+            onTouchMove={(event) => {
               if (touchStartX.current === null || touchStartY.current === null)
                 return;
 
-              const deltaX =
-                event.changedTouches[0].clientX - touchStartX.current;
-              const deltaY =
-                event.changedTouches[0].clientY - touchStartY.current;
+              const deltaX = event.touches[0].clientX - touchStartX.current;
+              const deltaY = event.touches[0].clientY - touchStartY.current;
 
               if (
-                Math.abs(deltaX) > Math.abs(deltaY) &&
-                Math.abs(deltaX) > 40
+                isHorizontalSwipe.current === null &&
+                Math.max(Math.abs(deltaX), Math.abs(deltaY)) > 5
               ) {
-                if (deltaX < 0) nextPhoto();
-                else prevPhoto();
+                isHorizontalSwipe.current = Math.abs(deltaX) > Math.abs(deltaY);
+              }
+
+              if (isHorizontalSwipe.current) {
+                x.set(-photoIndexRef.current * getWidth() + deltaX);
+              }
+            }}
+            onTouchEnd={(event) => {
+              if (
+                !isHorizontalSwipe.current ||
+                touchStartX.current === null ||
+                touchStartTime.current === null
+              ) {
+                touchStartX.current = null;
+                touchStartY.current = null;
+                isHorizontalSwipe.current = null;
+                return;
+              }
+
+              const deltaX =
+                event.changedTouches[0].clientX - touchStartX.current;
+              const elapsed = Date.now() - touchStartTime.current;
+              const velocity = Math.abs(deltaX) / elapsed;
+              const width = getWidth();
+
+              if (deltaX < -(width * 0.2) || (velocity > 0.4 && deltaX < 0)) {
+                goTo(photoIndexRef.current + 1);
+              } else if (
+                deltaX > width * 0.2 ||
+                (velocity > 0.4 && deltaX > 0)
+              ) {
+                goTo(photoIndexRef.current - 1);
+              } else {
+                animate(x, -photoIndexRef.current * width, {
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 40,
+                  mass: 0.8,
+                });
               }
 
               touchStartX.current = null;
               touchStartY.current = null;
+              isHorizontalSwipe.current = null;
             }}
           >
-            <motion.div
-              className="flex"
-              animate={{ x: `-${photoIndex * 100}%` }}
-              transition={{
-                type: "spring",
-                stiffness: 120,
-                damping: 20,
-                mass: 0.8,
-              }}
-            >
+            <motion.div className="flex" style={{ x }}>
               {photoPlaceholders.map((photo) => (
                 <div key={photo.title} className="w-full shrink-0">
                   <article className="group grid gap-0 overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#1A1A1A] md:grid-cols-2">
@@ -559,7 +610,7 @@ export default function Home() {
               <button
                 key={photo.title}
                 type="button"
-                onClick={() => setPhotoIndex(index)}
+                onClick={() => goTo(index)}
                 aria-label={`Ir para foto ${index + 1}`}
                 className={`h-2.5 rounded-full transition-all ${
                   photoIndex === index
