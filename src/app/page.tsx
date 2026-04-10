@@ -378,7 +378,7 @@ export default function Home() {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <div className="mb-10 rounded-3xl border border-[#2A2A2A] bg-gradient-to-br from-[#1A1A1A] via-[#1E1E1E] to-[#1A1A1A] p-5 shadow-[0_22px_55px_rgba(0,0,0,0.35)]">
-                <div className="relative aspect-[16/9] overflow-hidden rounded-2xl">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
                   <Image
                     src="/images/secao-sobre-jhon.jpeg"
                     alt="Equipe JJ em atendimento técnico"
@@ -480,7 +480,7 @@ export default function Home() {
           </motion.div>
 
           <div
-            className="overflow-hidden rounded-3xl border border-[#2A2A2A] bg-[#1A1A1A]/90 p-3 shadow-[0_20px_45px_rgba(0,0,0,0.35)]"
+            className="overflow-hidden rounded-3xl border border-[#2A2A2A] bg-[#111111] p-3 shadow-[0_20px_45px_rgba(0,0,0,0.35)]"
             onMouseEnter={() => setIsPhotoAuto(false)}
             onMouseLeave={() => setIsPhotoAuto(true)}
             onTouchStart={(event) =>
