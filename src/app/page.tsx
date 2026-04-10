@@ -208,7 +208,7 @@ export default function Home() {
       <main className="relative">
         <section id="inicio" className="relative overflow-hidden">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(232,83,42,0.18),_transparent_45%),radial-gradient(circle_at_bottom_left,_rgba(232,83,42,0.2),_transparent_48%)]" />
-          <div className="relative mx-auto grid w-full max-w-6xl gap-12 px-6 py-20 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-28">
+          <div className="relative mx-auto w-full max-w-6xl px-6 py-20 lg:px-8 lg:py-28">
             <motion.div
               variants={fadeUp}
               initial="hidden"
@@ -244,33 +244,6 @@ export default function Home() {
                   <Phone className="h-4 w-4" />
                   Falar com Técnico
                 </a>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-              className="hidden lg:block"
-            >
-              <div className="rounded-3xl border border-[#2A2A2A] bg-gradient-to-br from-[#1A1A1A] via-[#1E1E1E] to-[#1A1A1A] p-6 shadow-[0_30px_70px_rgba(0,0,0,0.35)]">
-                <div className="aspect-[4/3] rounded-2xl bg-[linear-gradient(145deg,_rgba(232,83,42,0.18),_rgba(232,83,42,0.12))] p-6">
-                  <div className="flex h-full flex-col justify-between rounded-xl border border-[#3A3A3A] bg-[#151515]/80 p-6 backdrop-blur">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#B8B8B8]">
-                      Placeholder de imagem
-                    </p>
-                    <div>
-                      <p className="text-lg font-semibold text-white">
-                        Equipe técnica em instalação de segurança
-                      </p>
-                      <p className="mt-2 text-sm text-[#D1D1D1]">
-                        Sugestão: foto real da equipe uniformizada em
-                        atendimento.
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -499,7 +472,7 @@ export default function Home() {
               {photoPlaceholders.map((photo) => (
                 <div key={photo.title} className="w-full shrink-0">
                   <article className="group grid gap-0 overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#1A1A1A] md:grid-cols-2">
-                    <div className="relative min-h-[260px] bg-[linear-gradient(135deg,rgba(232,83,42,0.85),rgba(160,52,24,0.95))]">
+                    <div className="relative aspect-[4/3] bg-[linear-gradient(135deg,rgba(232,83,42,0.85),rgba(160,52,24,0.95))]">
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.2),transparent_35%)]" />
                       <div className="absolute right-6 bottom-6 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
                         Placeholder
