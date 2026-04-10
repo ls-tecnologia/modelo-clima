@@ -529,18 +529,19 @@ export default function Home() {
               {photoPlaceholders.map((photo) => (
                 <div key={photo.title} className="w-full shrink-0">
                   <article className="group grid gap-0 overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#1A1A1A] md:grid-cols-2">
-                    <div className="relative aspect-[4/3] overflow-hidden bg-[#111111]">
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <div className="absolute inset-0 bg-[#111111] z-0" />
                       {photo.image ? (
                         <Image
                           src={photo.image}
                           alt={photo.title}
                           fill
-                          className="object-cover"
+                          className="object-cover relative z-10"
                         />
                       ) : (
                         <>
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.2),transparent_35%)]" />
-                          <div className="absolute right-6 bottom-6 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.2),transparent_35%)] z-10" />
+                          <div className="absolute right-6 bottom-6 z-20 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur">
                             Placeholder
                           </div>
                         </>
