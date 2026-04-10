@@ -23,7 +23,7 @@ import {
 const WHATSAPP_LINK =
   "https://wa.me/5551993043810?text=Olá!%20Quero%20um%20orçamento%20de%20instalação%20ou%20manutenção%20de%20segurança.";
 const PHONE_LINK = "tel:+5551993043810";
-const EMAIL_LINK = "mailto:contato@jjsistemasdeseguranca.com";
+const EMAIL_LINK = "mailto:jhonatangreselle09@gmail.com";
 const INSTAGRAM_LINK = "https://instagram.com/jj.instalacoes_";
 const MAPS_EMBED_LINK =
   "https://www.google.com/maps?q=Tramandaí,+Rio+Grande+do+Sul&output=embed";
@@ -782,7 +782,7 @@ export default function Home() {
                   href={EMAIL_LINK}
                   className="block transition-colors hover:text-[#E8532A]"
                 >
-                  contato@jjsistemasdeseguranca.com
+                  jhonatangreselle09@gmail.com
                 </a>
                 <a
                   href={INSTAGRAM_LINK}
@@ -819,8 +819,11 @@ export default function Home() {
           </div>
 
           <div className="mt-10 border-t border-[#2A2A2A] pt-6 text-xs text-[#9A9A9A]">
-            © {new Date().getFullYear()} JJ Sistema de Segurança. Todos os
-            direitos reservados.
+            <p>
+              © {new Date().getFullYear()} JJ Sistema de Segurança. Todos os
+              direitos reservados.
+            </p>
+            <p className="mt-1">CNPJ: 55.239.510/0001-08</p>
           </div>
         </div>
       </footer>

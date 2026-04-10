@@ -78,7 +78,7 @@ const localBusinessJsonLd = {
   image: [`${siteUrl}/og-image.png`],
   url: siteUrl,
   telephone: "+55 51 99304-3810",
-  email: "contato@jjsistemasdeseguranca.com",
+  email: "jhonatangreselle09@gmail.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Tramandaí",
