@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://empresa-landing.vercel.app";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://jjsistema-de-seguranca.vercel.app";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,27 +18,31 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Empresa | Ar Condicionado",
+  title:
+    "JJ Sistema de Segurança | CFTV, Alarmes, Cerca Elétrica e Portão Eletrônico",
   description:
-    "Empresa: instalação, assistência técnica, manutenção preventiva e corretiva, higienização, desinfecção e PMOC para ar-condicionado.",
+    "JJ Sistema de Segurança: instalação e manutenção técnica de CFTV, portão eletrônico, alarme residencial e cerca elétrica para residências e comércios.",
   keywords: [
-    "ar condicionado",
-    "instalação de ar condicionado",
-    "manutenção de ar condicionado SP",
-    "assistência técnica ar condicionado",
-    "higienização de ar condicionado",
-    "PMOC ar condicionado",
-    "Empresa climatização",
+    "JJ Sistema de Segurança",
+    "CFTV",
+    "instalação de câmeras",
+    "manutenção de câmeras",
+    "portão eletrônico",
+    "alarme residencial",
+    "cerca elétrica",
+    "segurança residencial",
+    "segurança comercial",
+    "instalação e manutenção de segurança",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Empresa | Climatização e Ar Condicionado",
+    title: "JJ Sistema de Segurança | Instalação e Manutenção Técnica",
     description:
-      "Atendimento ágil com nota 5.0: instalação, manutenção, higienização, desinfecção e PMOC.",
+      "Proteção residencial e comercial com instalação e manutenção de CFTV, portão eletrônico, alarme e cerca elétrica.",
     url: "/",
-    siteName: "Empresa",
+    siteName: "JJ Sistema de Segurança",
     locale: "pt_BR",
     type: "website",
   },
@@ -56,43 +62,50 @@ export const metadata: Metadata = {
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Empresa",
+  name: "JJ Sistema de Segurança",
   image: [`${siteUrl}/og-image.png`],
   url: siteUrl,
-  telephone: "+55 81 96000-2151",
-  email: "contato@empresa.com",
+  telephone: "+55 51 99304-3810",
+  email: "contato@jjsistemasdeseguranca.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Rua Cruz Alta",
-    addressLocality: "Barra de jangada",
-    addressRegion: "PE",
-    postalCode: "54470-270",
     addressCountry: "BR",
   },
   areaServed: [
     {
-      "@type": "City",
-      name: "Barra de Jangada",
-    },
-    {
-      "@type": "State",
-      name: "Pernambuco",
+      "@type": "Country",
+      name: "Brasil",
     },
   ],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      opens: "07:00",
-      closes: "19:00",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "08:00",
+      closes: "18:00",
     },
   ],
-  sameAs: ["https://instagram.com/empresa"],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "94",
-  },
+  sameAs: [
+    "https://instagram.com/jj.instalacoes_",
+    "https://instagram.com/stvseguranca",
+  ],
+  serviceType: [
+    "Instalação de CFTV",
+    "Manutenção de CFTV",
+    "Instalação de Portão Eletrônico",
+    "Manutenção de Portão Eletrônico",
+    "Instalação de Alarme Residencial",
+    "Manutenção de Alarme Residencial",
+    "Instalação de Cerca Elétrica",
+    "Manutenção de Cerca Elétrica",
+  ],
   priceRange: "$$",
 };
 
@@ -109,7 +122,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessJsonLd),
+          }}
         />
         {children}
       </body>
